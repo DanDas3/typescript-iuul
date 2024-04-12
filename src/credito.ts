@@ -1,4 +1,4 @@
-class Credito {
+export class Credito {
   private _valor: number;
   private _data: Date;
 

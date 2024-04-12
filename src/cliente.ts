@@ -1,6 +1,7 @@
-import './pessoa'
-import './iusuario'
-class Cliente extends Pessoa implements IUsuario {
+import {Pessoa} from './pessoa'
+import {IUsuario} from './iusuario'
+import {Endereco} from './endereco'
+export class Cliente extends Pessoa implements IUsuario {
   
   private vip: boolean;
   private enderecos:Endereco[]

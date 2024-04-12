@@ -1,4 +1,4 @@
-interface IUsuario {
+export interface IUsuario {
   /**
    * autenticar
    */

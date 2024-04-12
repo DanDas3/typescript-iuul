@@ -1,6 +1,7 @@
-import './credito';
-import './debito'
-abstract class Conta {
+import {Credito} from './credito';
+import {Debito} from './debito';
+
+export abstract class Conta {
   private numero: string;
   private creditos: Credito[];
   private debitos: Debito[];
