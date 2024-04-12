@@ -1,3 +1,5 @@
+import './credito';
+import './debito'
 abstract class Conta {
   private numero: string;
   private creditos: Credito[];
