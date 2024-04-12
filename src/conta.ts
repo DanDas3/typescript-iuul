@@ -1,6 +1,8 @@
 abstract class Conta {
   private numero: string;
-
+  private creditos: Credito[];
+  private debitos: Debito[];
+  
   /**
    * depositar
    */
