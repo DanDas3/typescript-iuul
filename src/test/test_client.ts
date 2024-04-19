@@ -1,4 +1,4 @@
-import {Cliente} from './cliente'
+import {Cliente} from '../cliente'
 const cli: Cliente = new Cliente('111','cli','444');
 
 console.log('cpf', cli.cpf);
