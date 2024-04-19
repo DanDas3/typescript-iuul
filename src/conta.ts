@@ -1,11 +1,33 @@
 import {Credito} from './credito';
 import {Debito} from './debito';
+import {Cliente} from "./cliente";
 
 export abstract class Conta {
-  private numero: string;
+  private _numero: string;
   private creditos: Credito[];
   private debitos: Debito[];
-  
+  private _cliente:Cliente;
+  constructor(numero:string, cliente:Cliente) {
+    this.numero = numero;
+
+    this.cliente = cliente;
+  }
+
+  get cliente(): Cliente {
+    return this._cliente;
+  }
+
+  private set cliente(value: Cliente) {
+    this._cliente = value;
+  }
+  get numero(): string {
+    return this._numero;
+  }
+
+  private set numero(value: string) {
+    this._numero = value;
+  }
+
   /**
    * depositar
    */
@@ -21,7 +43,7 @@ export abstract class Conta {
 
     if(!this.temSaldoSuficiente(valor)) {
       console.log('Saldo insuficiente para esta operação');      
-      return;
+      throw new Error('Saldo insuficiente para esta operação');
     }
 
     let data: Date = new Date();
@@ -29,11 +51,11 @@ export abstract class Conta {
     
   }
 
-  private calcularTotalCredito(): number {
+  protected calcularTotalCredito(): number {
     return this.creditos.reduce((total, credito) => total + credito.valor, 0);
   }
 
-  private calcularTotalDebito(): number {
+  protected calcularTotalDebito(): number {
     return this.debitos.reduce((total, debito) => total + debito.valor, 0)
   }
 

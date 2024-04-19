@@ -1,13 +1,26 @@
 import {Pessoa} from './pessoa'
 import {IUsuario} from './iusuario'
 import {Endereco} from './endereco'
+import {Conta} from "./conta";
 export class Cliente extends Pessoa implements IUsuario {
   
-  private vip: boolean;
-  private enderecos:Endereco[]
-
-  constructor(cpf:string, nome:string, telefone:string) {
+  private _vip: boolean;
+  private enderecos:Endereco[];
+  private _contas: Conta[];
+  constructor(cpf:string, nome:string, telefone:string, conta:Conta) {
     super(cpf, nome, telefone)
+    this.adicionarConta(conta);
+  }
+
+  get vip(): boolean {
+    return this._vip;
+  }
+
+  set vip(value: boolean) {
+    this._vip = value;
+  }
+  get contas(): Conta[] {
+    return this._contas;
   }
 
   public autenticar(): boolean {
@@ -20,6 +33,10 @@ export class Cliente extends Pessoa implements IUsuario {
 
   public adicionarEndereco(endereco: Endereco) {
     this.enderecos.push(endereco);
+  }
+
+  public adicionarConta(conta:Conta) {
+    this._contas.push(conta);
   }
 
 }
