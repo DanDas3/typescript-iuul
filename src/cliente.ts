@@ -7,7 +7,7 @@ export class Cliente extends Pessoa implements IUsuario {
   private _vip: boolean;
   private enderecos:Endereco[] = [];
   private _contas: Conta[] = [];
-  constructor(cpf:string, nome:string, telefone:string, vip:boolean = false,conta:Conta = null) {
+  constructor(cpf:string, nome:string, telefone:string, vip:boolean = false,conta:Conta|null = null) {
     super(cpf, nome, telefone)
 
     if(conta) {
