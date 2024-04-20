@@ -1,3 +1,5 @@
+import {Cliente} from "./cliente";
+
 export class Endereco {
   private _cep: string;
   private _logradouro: string;
@@ -5,14 +7,20 @@ export class Endereco {
   private _complemento: string;
   private _cidade: string;
   private _uf: string;
+  private _cliente:Cliente;
 
-  constructor(cep:string, logradouro:string, numero:string, complemento:string, cidade:string, uf:string) {
+  constructor(cep:string, logradouro:string, numero:string, complemento:string, cidade:string, uf:string, cliente:Cliente) {
     this.cep = cep;
     this.logradouro = logradouro;
     this.numero = numero;
     this.complemento = complemento;
     this.cidade = cidade;
     this.uf = uf;
+
+    if(!cliente) {
+      throw new Error('É necessário adicionar um cliente');
+    }
+    this.cliente = cliente;
   }
 
   public get uf(): string {
@@ -52,5 +60,12 @@ export class Endereco {
   public set cep(value: string) {
     this._cep = value;
   }
-  
+
+  public get cliente(): Cliente {
+    return this._cliente;
+  }
+
+  private set cliente(value: Cliente) {
+    this._cliente = value;
+  }
 }

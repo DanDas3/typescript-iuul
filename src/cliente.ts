@@ -5,11 +5,14 @@ import {Conta} from "./conta";
 export class Cliente extends Pessoa implements IUsuario {
   
   private _vip: boolean;
-  private enderecos:Endereco[];
-  private _contas: Conta[];
-  constructor(cpf:string, nome:string, telefone:string, conta:Conta) {
+  private enderecos:Endereco[] = [];
+  private _contas: Conta[] = [];
+  constructor(cpf:string, nome:string, telefone:string, vip:boolean = false,conta:Conta = null) {
     super(cpf, nome, telefone)
-    this.adicionarConta(conta);
+
+    if(conta) {
+      this.adicionarConta(conta);
+    }
   }
 
   get vip(): boolean {
