@@ -42,7 +42,6 @@ export abstract class Conta {
   public sacar(valor: number) {
 
     if(!this.temSaldoSuficiente(valor)) {
-      console.log('Saldo insuficiente para esta operação');      
       throw new Error('Saldo insuficiente para esta operação');
     }
 
