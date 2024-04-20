@@ -4,9 +4,9 @@ import {Cargo} from "./cargo";
 
 export class Funcionario extends Pessoa implements IUsuario{
     private _salario:number;
-    private _cargo:Cargo[];
+    private _cargos:Cargo[] = [];
 
-    public constructor(cpf:string, nome:string, telefone:string, salario:number, cargo:Cargo) {
+    public constructor(cpf:string, nome:string, telefone:string, salario:number, cargo:Cargo = null) {
         super(cpf, nome, telefone);
         if(salario) {
             this.salario = salario;
@@ -25,12 +25,12 @@ export class Funcionario extends Pessoa implements IUsuario{
         this._salario = value;
     }
 
-    get cargo(): Cargo[] {
-        return this._cargo;
+    get cargos(): Cargo[] {
+        return this._cargos;
     }
 
     public adicionarCargo(cargo:Cargo) {
-        this._cargo.push(cargo);
+        this._cargos.push(cargo);
     }
 
     public autenticar(): boolean {

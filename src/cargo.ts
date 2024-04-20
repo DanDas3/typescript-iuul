@@ -2,7 +2,7 @@ import {Funcionario} from "./funcionario";
 
 export class Cargo {
     private _nome:string;
-    private _funcionario:Funcionario[];
+    private _funcionario:Funcionario[] = [];
 
     public constructor(nome:string, funcionario:Funcionario) {
         if(!funcionario){
