@@ -4,8 +4,8 @@ import {Cliente} from "./cliente";
 
 export abstract class Conta {
   private _numero: string;
-  private creditos: Credito[];
-  private debitos: Debito[];
+  private creditos: Credito[] = [];
+  private debitos: Debito[] = [];
   private _cliente:Cliente;
   constructor(numero:string, cliente:Cliente) {
     this.numero = numero;
